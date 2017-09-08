@@ -9,7 +9,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-rl.question('How many primes would you like to multiply?', (userInput) => {
+rl.question('How many primes would you like to multiply? ', (userInput) => {
   rl.close();
   var numberOfPrimes = parseInt(userInput);
   var multiplicationTable = new mT.MultiplicationTable();
