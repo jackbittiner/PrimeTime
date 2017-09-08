@@ -12,5 +12,17 @@ PrimeGenerator.prototype.isPrime = function(primesBefore, number) {
   return isItPrime;
 }
 
+PrimeGenerator.prototype.getPrimes = function(number) {
+  var primes = [];
+  var i = 2;
+  while(primes.length < number) {
+    if (this.isPrime(primes, i)) {
+      primes.push(i)
+    }
+    i++;
+  }
+  return primes;
+}
+
 
 module.exports.PrimeGenerator = PrimeGenerator;
