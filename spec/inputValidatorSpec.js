@@ -9,15 +9,15 @@ describe('InputValidator', function() {
   describe('validateInput', function() {
 
     it('throws an error if the input is not a number', function() {
-      expect(function(){ inputValidator.validateInput('a') } ).toThrow(new Error("Please input a whole number above 1."))
+      expect(inputValidator.validateInput('this is not a number')).toEqual(false)
     });
 
     it('throws an error if the input is less than 1', function() {
-      expect(function(){ inputValidator.validateInput(-10) } ).toThrow(new Error("Please input a whole number above 1."))
+      expect(inputValidator.validateInput(-10)).toEqual(false)
     });
 
     it('throws an error if the input is less than 1', function() {
-      expect(function(){ inputValidator.validateInput(32.3) } ).toThrow(new Error("Please input a whole number above 1."))
+      expect(inputValidator.validateInput(16.6)).toEqual(false)
     });
 
     it('returns true if the input is an integer above 1', function() {
