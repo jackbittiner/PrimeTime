@@ -8,15 +8,15 @@ describe('InputValidator', function() {
 
   describe('validateInput', function() {
 
-    it('throws an error if the input is not a number', function() {
+    it('returns false if input is NaN', function() {
       expect(inputValidator.validateInput('this is not a number')).toEqual(false)
     });
 
-    it('throws an error if the input is less than 1', function() {
+    it('returns false if number is less than 1', function() {
       expect(inputValidator.validateInput(-10)).toEqual(false)
     });
 
-    it('throws an error if the input is less than 1', function() {
+    it('returns false if number is not whole', function() {
       expect(inputValidator.validateInput(16.6)).toEqual(false)
     });
 
