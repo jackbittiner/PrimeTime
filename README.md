@@ -132,6 +132,19 @@ this is the result:
 
 WOW! 0.035 seconds! It's a new personal best!
 
+## Technologies Used
+
+__Node.js__: This is a node app that is run in the terminal.
+All the actual code is written in Javascript. I opted to use the
+constructor-prototype design pattern as this is what I'm most familiar with.
+In hindsight, each method I wrote could be independent functions that don't
+belong to any particular constructor, but I liked my solution as each constructor
+is responsible for a specific part of the app.
+
+__Jasmine__: I used the node jasmine package for testing. I was
+considering using Mocha and Chai, but as I have more familiarity with
+Jasmine, I chose to use it so I could just crack along with it quicker.
+
 ## Reflection
 
 #### What I Am Pleased With
