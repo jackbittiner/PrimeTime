@@ -78,10 +78,16 @@ to its simplest constituent parts. This is what each part does and how:
 __PrimeGenerator__: This constructor is responsible for two things. One is to
 determine whether a number is prime or not. The other is to generate the first
 N primes where N is given as an argument. To determine whether a number is prime or not
-it looks at all the primes that came before it. So say we were evaluating the number 11,
-the primes before it are 2, 3, 5 and 7. And because 11 isn't divisible by any of those
-numbers, 11 has to be prime. So if we take the number 10, that is perfectly divisible
-by 2 so will be deemed not prime. To generate N primes, the getPrimes method increments
+the function first checks if the argument is perfectly divisible by 2 or 3. If this
+is true and the argument isn't 2 or 3, then it returns false. If the number is 2 or 3,
+it will return true. Then we check if the numbers from 5 upwards are prime or not. We
+begin with a variable of 5 and increment it by 6 each time until we get to the square root
+of the argument. If the argument is perfectly divisible by the variable or the variable + 2,
+then it isn't prime. This is why we can increment the variable by 6 as each number between 5
+and 11 will be checked either from the original if statement, or by this new if statement.
+This speeds up the process of checking if a number is prime.
+
+Then to generate N primes, the getPrimes method increments
 from 2 and checks each number using the method described before. It stops when it
 reaches N primes.
 
@@ -101,3 +107,53 @@ a whole number.
 __Index__: This is where the magic happens. The app will prompt the user for a
 number and then return the results in table form. If the user inputs an invalid
 input, it will prompt again until a whole number above 1 is stated.
+
+## Optimisation
+
+Generating prime numbers can be slow. Especially a lot of them. In my first solution
+for this challenge this was a problem for me. This was my original function:
+
+![Original Function](./readme-img/originalfunction.png)
+
+It would judge whether a number was prime or not based on the primes that
+came before it. This was slow. Lets say someone wants the first 20,000 primes,
+in order to deduce whether the 20000th prime was in fact prime, it would have
+to check it against 19,999 other numbers. We can see just how slow it is
+here:
+
+![Slow Time](./readme-img/slowtime.png)
+
+45 seconds of thumb twiddling is the time to beat!
+
+As soon as I refactored my isPrime method to the one I have in my codebase now,
+this is the result:
+
+![New Time](./readme-img/newtime.png)
+
+WOW! 0.035 seconds! It's a new personal best!
+
+## Reflection
+
+#### What I Am Pleased With
+
+- It works!
+- It was test-driven.
+- I separated the concerns to the different constructors so each is responsible
+for one thing.
+- I'm quite pleased with the formatting of the table (it took me longer than it
+should!)
+
+#### What Would I Do Next With More Time?
+
+- A bit of a clean up. I have some monster methods in my code that I'm sure could
+be broken down a bit more. Especially the formatting of the table!
+- I would ideally like to make a front-end to display the results. The terminal is
+only so big and therefore the display gets unpleasant when large numbers are entered.
+If it was displayed on a webpage, the table can keep on growing both sideways and
+downwards.
+- I feel my index.js file that prompts the user for input is a bit hideous. But hey ho,
+it does the trick.
+
+## Thank You
+
+Thanks for taking the time to evaluate this tech-test. I hope it's up to scratch!
