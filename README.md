@@ -79,8 +79,8 @@ __PrimeGenerator__: This constructor is responsible for two things. One is to
 determine whether a number is prime or not. The other is to generate the first
 N primes where N is given as an argument. To determine whether a number is prime or not
 it looks at all the primes that came before it. So say we were evaluating the number 11,
-the primes before it are 2, 3, 5 and 7. And because 11 isn't divisible by ant of those
-numbers, 11 has to be primes. So if we take the number 10, that is perfectly divisible
+the primes before it are 2, 3, 5 and 7. And because 11 isn't divisible by any of those
+numbers, 11 has to be prime. So if we take the number 10, that is perfectly divisible
 by 2 so will be deemed not prime. To generate N primes, the getPrimes method increments
 from 2 and checks each number using the method described before. It stops when it
 reaches N primes.
